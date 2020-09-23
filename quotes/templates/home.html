@@ -1,0 +1,30 @@
+{% extends 'baseTemplate.html' %}
+{% block content %}
+
+
+
+<h1> first template page </h1>
+<p> this is an example of text in boosstrap formatting </p>
+
+<p class = "test"> this is an atempt to try to get remote static CSS </p>
+
+<p>this is the API result</p>
+
+{{result.latestPrice}}
+<br>
+<p>This is the Short Result</p>
+
+
+{{shortResult}}
+
+<br>
+
+<p>Presently holding {{quantity}} shares of {{result.companyName}} worth {{result.latestPrice}}</p>
+
+<br>
+<p>This is the raw data from the dictionary result </p>
+<br>
+{{place_holder}}
+
+
+{% endblock %}

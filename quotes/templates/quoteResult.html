@@ -1,0 +1,71 @@
+{% extends 'baseTemplate.html' %}
+
+
+
+{% block content %}
+
+
+{{result}}
+
+<h1>{{companyName}}  </h1>
+
+{% if change  > 0%}
+
+<h1 style="color:green;">${{latestPrice}} </h1>
+<h3> Today's Change: </h3>
+<h3 style="color:green;">+ ${{absoluteChange}} + %{{roundedChangePercent}} </h3>
+
+{% elif change < 0%}
+
+<h1 style="color:red;">${{latestPrice}} </h1>
+<h3> Today's Change: </h3>
+<h3 style="color:red;">- ${{absoluteChange}} - %{{roundedChangePercent}} </h3>
+
+{% elif change == 0%}
+
+<h1 style="color:blue;">${{latestPrice}} </h1>
+
+{% endif %}
+
+
+<h3>Market Cap:  {{roundedMarketCap}} {{capLable}}</h3>
+
+<br>
+<br>
+<div class="container">
+	<div class="row">
+
+
+		<div class="col test1">
+
+			<h2>{{result.week52Low}}</h2>	
+
+		</div>
+
+
+		<div class="slidecontainer col-8 ">
+
+	
+  			<input type="range" min="{{result.week52Low}}" max="{{result.week52High}}" value="{{result.latestPrice}}" class="slider" id="myRange">
+	
+	
+		</div>
+
+		
+
+		<div class="col test1">
+
+			<h2>{{result.week52High}}</h2>
+
+		</div>
+
+
+	</div>
+
+</div>
+
+
+
+
+
+{% endblock %}

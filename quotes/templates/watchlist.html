@@ -1,0 +1,38 @@
+
+
+{% extends 'baseTemplate.html' %}
+{% block content %}
+
+
+
+
+<P>this is the watchlist page </P>
+
+<form action ="{% url 'watchlist'%}" class="form-inline my-2 my-lg-0 buttonMargin" method ="POST">
+		{% csrf_token %}
+	
+      <input class=" resize w3-hide-small form-control mr-sm-2 searchFormat" type="search" placeholder="Enter Symbol" aria-label="Search" name="symbol">
+
+      
+      <button class=" resize w3-hide-small btn btn-outline-success my-2 my-sm-0 searchFormat " type="submit">Add Stock</button>
+
+  	
+    </form>
+
+    <br/>
+
+
+
+{% for item in watchListItem %}
+
+	<p>SYMBOL: {{item.symbol}}
+	<a class="btn btn-danger" href="{% url 'deleteWachlistItem' item.id %}" role="button">Delete</a>
+	</p>
+{% endfor %}
+
+
+
+<p>this is the data passed: </p> {{watchListItem}}
+
+
+{% endblock %}
